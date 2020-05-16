@@ -53,7 +53,7 @@ function compileSASS() {
       includePaths: bourbon
     }).on('error', sass.logError))
     .pipe(autoprefixer('last 2 versions'))
-    .pipe(dest('dist/assets/css'))
+    .pipe(dest('../dist/assets/css'))
     .pipe(browserSync.stream());
 }
 
@@ -68,7 +68,7 @@ function compileSCSS() {
       includePaths: bourbon
     }).on('error', sass.logError))
     .pipe(autoprefixer('last 2 versions'))
-    .pipe(dest('dist/assets/css'))
+    .pipe(dest('../dist/assets/css'))
     .pipe(browserSync.stream());
 }
 
@@ -88,7 +88,7 @@ function compileHTML() {
       helpers: 'src/helpers/',
       data: 'src/data/'
     }))
-    .pipe(dest('dist'))
+    .pipe(dest('../dist'))
     .pipe(browserSync.stream());
 }
 
@@ -101,7 +101,7 @@ function compileJS() {
       'src/assets/js/auth.js',
     ])
     .pipe(babel())
-    .pipe(dest('dist/assets/js/'))
+    .pipe(dest('../dist/assets/js/'))
     .pipe(browserSync.stream());
 }
 
@@ -126,7 +126,7 @@ function scssLint() {
 // HTML LINTER
 function htmlLint() {
   console.log('---------------HTML LINTING---------------');
-  return src('dist/*.html')
+  return src('../dist/*.html')
     .pipe(htmllint({}, htmllintReporter));
 }
 
@@ -161,7 +161,7 @@ function watchFiles() {
 function browserSyncInit(done) {
   console.log('---------------BROWSER SYNC---------------');
   browserSync.init({
-    server: './dist'
+    server: '../dist'
   });
   return done();
 }
@@ -172,9 +172,9 @@ function browserSyncInit(done) {
 function copyImages() {
   console.log('---------------OPTIMIZING IMAGES---------------');
   return src('src/assets/img/**/*.+(png|jpg|jpeg|gif|svg)')
-    .pipe(newer('dist/assets/img/'))
+    .pipe(newer('../dist/assets/img/'))
     //.pipe(imagemin())
-    .pipe(dest('dist/assets/img/'))
+    .pipe(dest('../dist/assets/img/'))
     .pipe(browserSync.stream());
 }
 
@@ -185,7 +185,7 @@ function copyFont() {
   return src([
       'src/assets/font/**/*',
     ])
-    .pipe(dest('dist/assets/fonts'))
+    .pipe(dest('../dist/assets/fonts'))
     .pipe(browserSync.stream());
 }
 
@@ -195,7 +195,7 @@ function copyData() {
   return src([
     'src/data/**/*',
   ])
-    .pipe(dest('dist/assets/data'))
+    .pipe(dest('../dist/assets/data'))
     .pipe(browserSync.stream());
 }
 
@@ -215,7 +215,7 @@ function concatPlugins() {
     .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
     .pipe(sourcemaps.write('./'))
-    .pipe(dest('dist/assets/js'))
+    .pipe(dest('../dist/assets/js'))
     .pipe(browserSync.stream());
 }
 
@@ -231,7 +231,7 @@ function concatCssPlugins() {
     .pipe(sourcemaps.init())
     .pipe(concat('app.css'))
     .pipe(sourcemaps.write('./'))
-    .pipe(dest('dist/assets/css'))
+    .pipe(dest('../dist/assets/css'))
     .pipe(browserSync.stream());
 }
 
@@ -241,7 +241,7 @@ function jsVendor() {
   return src([
       'src/assets/vendor/js/*',
     ])
-    .pipe(dest('dist/assets/vendor/js'))
+    .pipe(dest('../dist/assets/vendor/js'))
     .pipe(browserSync.stream());
 }
 
@@ -252,20 +252,20 @@ function cssVendor() {
       'src/assets/vendor/css/*',
 
     ])
-    .pipe(dest('dist/assets/vendor/css'))
+    .pipe(dest('../dist/assets/vendor/css'))
     .pipe(browserSync.stream());
 }
 
 // PRETTIFY HTML FILES
 function prettyHTML() {
   console.log('---------------HTML PRETTIFY---------------');
-  return src('dist/*.html')
+  return src('../dist/*.html')
     .pipe(prettyHtml({
       indent_size: 4,
       indent_char: ' ',
       unformatted: ['code', 'pre', 'em', 'strong', 'span', 'i', 'b', 'br']
     }))
-    .pipe(dest('dist'));
+    .pipe(dest('../dist'));
 }
 
 // DELETE DIST FOLDER
@@ -277,7 +277,7 @@ function cleanDist(done) {
 
 // ACCESSIBILITY CHECK
 function HTMLAccessibility() {
-  return src('dist/*.html')
+  return src('../dist/*.html')
     .pipe(accessibility({
       force: true
     }))
