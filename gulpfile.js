@@ -271,7 +271,7 @@ function prettyHTML() {
 // DELETE DIST FOLDER
 function cleanDist(done) {
   console.log('---------------REMOVING OLD FILES FROM DIST---------------');
-  del.sync(['../dist/*', '!../dist/.git'], {force: true});
+  del.sync(['../dist/*', '!../dist/.git', '!../dist/CNAME'], {force: true});
   return done();
 }
 
