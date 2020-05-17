@@ -26,12 +26,18 @@ To use this template, your computer needs:
 	`npm install -g gulp`
 -	Test: run `gulp -v ` in the terminal
 
-### Installing:
+### Installing and Development:
 
 - Install all node packages: `npm install`
 - Run `gulp dev`
 - Your site is now viewable at this URL: http://localhost:3000
 
+### Deploying To Production:
+
+- Check out https://github.com/minter/mxvoice-website and put it as a directory called `dist/` at the same level as this source website
+- To build for production, run `gulp build` in this directory. That should write files out to `../dist/`
+- Go into the `../dist/` directory, commit changes, and push up.
+- The site should now be visible at https://mxvoice.app/
 
 ### Folder Structure:
 
