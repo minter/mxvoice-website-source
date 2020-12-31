@@ -1,4 +1,6 @@
-# Bulkit | Landing Kit 1
+# mxvoice.app website
+
+Theme: Bulkit | Landing Kit 1
 
 ### Note
 
@@ -34,9 +36,7 @@ To use this template, your computer needs:
 
 ### Deploying To Production:
 
-- Check out https://github.com/minter/mxvoice-website and put it as a directory called `dist/` at the same level as this source website
-- To build for production, run `gulp build` in this directory. That should write files out to `../dist/`
-- Go into the `../dist/` directory, commit changes, and push up.
+- Uses [github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action) to build a `gh-pages` branch for release on push
 - The site should now be visible at https://mxvoice.app/
 
 ### Folder Structure:
