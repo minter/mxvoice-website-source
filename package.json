@@ -48,7 +48,7 @@
     "marked": "^2.0.0",
     "minimist": "^1.2.5",
     "node-bourbon": "^4.2.8",
-    "npm-force-resolutions": "0.0.3",
+    "npm-force-resolutions": "0.0.5",
     "panini": "^1.7.1",
     "run-sequence": "^2.2.1",
     "zoom-vanilla.js": "^2.0.6"
